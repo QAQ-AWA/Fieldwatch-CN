@@ -31,7 +31,9 @@ jobs:
           "$SM" --install "platforms;android-35" "build-tools;35.0.0"
 
       - name: Assemble debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: |
+          chmod +x ./gradlew
+          ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
